@@ -23,9 +23,6 @@
     "phore/micro-app": "dev-master"
   },
   "suggest": {
-    "erusev/parsedown-extra": "required to use markdown() methods",
-    "coreui/coreui": "required to use CoreUI Admin Interface",
-    "tabler/tabler": "required to use CoreUI Admin Interface"
   },
   "minimum-stability": "dev"
 }
