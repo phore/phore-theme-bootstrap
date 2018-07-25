@@ -14,16 +14,16 @@ class Bootstrap4_Config
     public $charset = "utf-8";
 
     public $cssUrls = [
-        "/asset/bs/css/bootstrap.min.css",
-        "/asset/fontawesome/css/all.css"
+        "/assets/bs/css/bootstrap.min.css",
+        "/assets/fontawesome/css/all.css"
     ];
 
     public $cssCode = [];
 
     public $jsUrls = [
-        "/asset/jquery-3.3.1.min.js",
-        "/asset/popper.min.js",
-        "/asset/bs/js/bootstrap.min.js",
+        "/assets/jquery-3.3.1.min.js",
+        "/assets/popper.min.js",
+        "/assets/bs/js/bootstrap.min.js",
     ];
 
 

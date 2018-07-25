@@ -27,6 +27,6 @@ class Bootstrap4Module implements AppModule
      */
     public function register(App $app)
     {
-        $app->addAssetSearchPath(__DIR__ . "/../lib-dist/");
+        $app->assets()->addAssetSearchPath(__DIR__ . "/../lib-dist/");
     }
 }
