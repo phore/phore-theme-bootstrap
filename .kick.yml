@@ -9,5 +9,5 @@ command:
   init:
     - "composer update"
 
-  update-offline:
-    - "rm -Rf /opt/offline-www/* && wget --mirror --convert-links --adjust-extension --page-requisites --no-parent -P /opt/offline-www http://localhost && mv  /opt/offline-www/localhost/* /opt/offline-www &&  git add ."
+  dev:
+    - "rm -Rf /opt/docs/* && wget --mirror --convert-links --adjust-extension --page-requisites --no-parent -P /opt/docs http://localhost && mv  /opt/docs/localhost/* /opt/docs &&  git add ."
