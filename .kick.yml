@@ -8,3 +8,6 @@ apache_fallback_resource: "/index.php"
 command:
   init:
     - "composer update"
+
+  update-offline:
+    - "rm -Rf /opt/offline-www/* && wget --mirror --convert-links --adjust-extension --page-requisites --no-parent -P /opt/offline-www http://localhost && mv  /opt/offline-www/localhost/* /opt/offline-www &&  git add ."

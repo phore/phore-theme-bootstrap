@@ -5,6 +5,7 @@
     - [FontAwesome 5.1]() 
     - [Bootstrap 4.1]()
     - [Popper]()
+    - [VueJS2]()
     
 Libraries are included as assets
 

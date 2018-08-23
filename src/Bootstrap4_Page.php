@@ -16,6 +16,11 @@ use Phore\Html\Fhtml\FHtml;
 class Bootstrap4_Page
 {
     /**
+     * @var Bootstrap4_Config
+     */
+    private $config;
+
+    /**
      * @var FHtml
      */
     public $document;
@@ -40,6 +45,7 @@ class Bootstrap4_Page
 
     public function __construct(Bootstrap4_Config $config)
     {
+        $this->config = $config;
         $this->document = $doc = fhtml("html");
 
         $this->head = $head = $doc->elem("head");
@@ -54,20 +60,48 @@ class Bootstrap4_Page
         $this->title->content($config->title);
         $head->elem("meta @name=viewport @content=width=device-width, initial-scale=1, shrink-to-fit=no");
 
+        foreach ($config->frameworks as $framework => $enabled) {
+            if ( ! $enabled)
+                continue;
+            if ( ! isset($config::FRAMEWORK_CSS[$framework]))
+                continue;
+            foreach ($config::FRAMEWORK_CSS[$framework] as $cssHref)
+                $head->elem("link @rel=stylesheet @crossorigin=anonymous @href=?", [$cssHref]);
+        }
+
         foreach ($config->cssUrls as $cur)
             $head->elem("link @rel=stylesheet @crossorigin=anonymous @href=?", [$cur]);
         foreach ($config->cssCode as $cur)
             $head->elem("style")->content(new RawHtmlNode($cur));
 
-        foreach ($config->jsUrls as $cur)
-            $doc->elem("script @language=javascript @crossorigin=anonymous @src=?", [$cur]);
-        foreach ($config->jsCode as $cur)
-            $doc->elem("script @language=javascript ")->content(new RawHtmlNode($cur));
+
+
+
+    }
+
+
+    public function addContent($data = null) : FHtml
+    {
+        $this->body->tpl($data);
+        return $this->body;
     }
 
 
     public function render() : string
     {
+        $config = $this->config;
+        foreach ($config->frameworks as $framework => $enabled) {
+            if ( ! $enabled)
+                continue;
+            if ( ! isset($config::FRAMEWORK_JS[$framework]))
+                continue;
+            foreach ($config::FRAMEWORK_JS[$framework] as $jsHref)
+                $this->body->elem("script @language=javascript @crossorigin=anonymous @src=?", [$jsHref]);
+        }
+        foreach ($config->jsUrls as $cur)
+            $this->body->elem("script @language=javascript @crossorigin=anonymous @src=?", [$cur]);
+        foreach ($config->jsCode as $cur)
+            $this->body->elem("script @language=javascript ")->content(new RawHtmlNode($cur));
         return $this->document->renderPage();
     }
 

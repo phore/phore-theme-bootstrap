@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Phore Theme Bootstrap :: Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" crossorigin="anonymous" href="assets/bs/css/bootstrap.min.css"/>
+    <link rel="stylesheet" crossorigin="anonymous" href="assets/fontawesome/css/all.css"/>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Phore theme bootstrap</h1>
+    </div>
+    <div class="container">
+      <pre>
+        <code class="highlighter-rouge">
+    $config = new Bootstrap4_Config();
+    $config-&gt;frameworks[&quot;vue&quot;] = true;
+    $config-&gt;title = &quot;Phore Theme Bootstrap :: Documentation&quot;;
+
+    $page = new Bootstrap4_Page($config);
+    $page-&gt;addContent([
+        &quot;div @container&quot; =&gt; [
+            &quot;h1&quot; =&gt; &quot;Phore theme bootstrap&quot;
+        ]
+    ]);
+
+        </code>
+      </pre>
+    </div>
+    <script language="javascript" crossorigin="anonymous" src="assets/jquery-3.3.1.min.js"></script>
+    <script language="javascript" crossorigin="anonymous" src="assets/bs/js/bootstrap.min.js"></script>
+    <script language="javascript" crossorigin="anonymous" src="assets/vue-2.5.17.js"></script>
+    <script language="javascript" crossorigin="anonymous" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script language="javascript" crossorigin="anonymous" src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/php.min.js"></script>
+    <script language="javascript">hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
