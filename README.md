@@ -17,6 +17,8 @@ composer require phore/theme-bootstrap
 
 ## Example
 
+[See example page](https://phore.github.io/phore-theme-bootstrap/)
+
 Example / testing is included. Run `kickstart.sh` to go live and open
 `http://localhost` in your browser. 
 
