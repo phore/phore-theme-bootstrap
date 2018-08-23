@@ -54,7 +54,21 @@ class Bootstrap4_Page
         if ($config->content !== null) {
             $body->tpl($config->content);
         }
+    }
 
+
+    public function addContent($data = null) : FHtml
+    {
+        $this->body->tpl($data);
+        return $this->body;
+    }
+
+
+    public function render() : string
+    {
+        $config = $this->config;
+
+        $head = $this->head;
         $head->elem("meta @charset=?", [$config->charset]);
         $this->title = $head->elem("title");
         $this->title->content($config->title);
@@ -75,21 +89,6 @@ class Bootstrap4_Page
             $head->elem("style")->content(new RawHtmlNode($cur));
 
 
-
-
-    }
-
-
-    public function addContent($data = null) : FHtml
-    {
-        $this->body->tpl($data);
-        return $this->body;
-    }
-
-
-    public function render() : string
-    {
-        $config = $this->config;
         foreach ($config->frameworks as $framework => $enabled) {
             if ( ! $enabled)
                 continue;

@@ -21,6 +21,7 @@ use Phore\Theme\Bootstrap\Bootstrap4_Page;
 $hl = new Highlighter();
 $config->frameworks["vue"] = true; // Enable VueJS
 $config->jsUrls[] = "/assets/vueapp1.js"; // Link to virtual asset
+$config->cssUrls[] = "/assets/github.css"; // Link to virtual asset
 
 $page->addContent([
     "div @container" => [
@@ -30,15 +31,17 @@ $page->addContent([
             "span" => "{{ counter }} clicks on ",
             "button @btn btn-primary @v-on:click=counter += 1" => "Click me"
         ]
-    ],
-
+    ]
 ]);
-
+$hl->end_recording();
 
 
 
 
 $page->addContent([
-
-
+    "div @container" => [
+        "pre" => [
+            "code" => $hl->getCode()
+        ]
+    ]
 ]);
