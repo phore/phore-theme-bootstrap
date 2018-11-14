@@ -80,11 +80,11 @@ class Bootstrap4_Page
             if ( ! isset($config::FRAMEWORK_CSS[$framework]))
                 continue;
             foreach ($config::FRAMEWORK_CSS[$framework] as $cssHref)
-                $head->elem("link @rel=stylesheet @crossorigin=anonymous @href=?", [$cssHref]);
+                $head->elem("link @rel=stylesheet @crossorigin=anonymous @href=?", [str_replace("%assetPath%", $config->assetPath, $cssHref)]);
         }
 
         foreach ($config->cssUrls as $cur)
-            $head->elem("link @rel=stylesheet @crossorigin=anonymous @href=?", [$cur]);
+            $head->elem("link @rel=stylesheet @crossorigin=anonymous @href=?", [str_replace("%assetPath%", $config->assetPath, $cur)]);
         foreach ($config->cssCode as $cur)
             $head->elem("style")->content(new RawHtmlNode($cur));
 
@@ -95,10 +95,10 @@ class Bootstrap4_Page
             if ( ! isset($config::FRAMEWORK_JS[$framework]))
                 continue;
             foreach ($config::FRAMEWORK_JS[$framework] as $jsHref)
-                $this->body->elem("script @language=javascript @crossorigin=anonymous @src=?", [$jsHref]);
+                $this->body->elem("script @language=javascript @crossorigin=anonymous @src=?", [str_replace("%assetPath%", $config->assetPath, $jsHref)]);
         }
         foreach ($config->jsUrls as $cur)
-            $this->body->elem("script @language=javascript @crossorigin=anonymous @src=?", [$cur]);
+            $this->body->elem("script @language=javascript @crossorigin=anonymous @src=?", [str_replace("%assetPath%", $config->assetPath, $cur)]);
         foreach ($config->jsCode as $cur)
             $this->body->elem("script @language=javascript ")->content(new RawHtmlNode($cur));
         return $this->document->renderPage();
