@@ -42,6 +42,9 @@ class Bootstrap4_Config
     ];
 
 
+    const ASSETS_DIR_BOOTSTAP = __DIR__ . "/../lib-dist/";
+
+
     public $frameworks = [
         "jquery" => true,
         "bootstrap" => true,
