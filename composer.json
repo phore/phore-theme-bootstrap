@@ -17,7 +17,7 @@
   },
   "require": {
     "php" : ">7.0",
-    "phore/html": "^0.1"
+    "phore/html": ">0.1"
   },
   "require-dev": {
     "phore/micro-app": "dev-master"
