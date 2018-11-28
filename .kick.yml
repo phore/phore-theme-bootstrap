@@ -9,5 +9,5 @@ command:
   init:
     - "composer update"
 
-  dev:
+  shot:
     - "rm -Rf /opt/docs/* && wget --mirror --convert-links --adjust-extension --page-requisites --no-parent -P /opt/docs http://localhost && mv  /opt/docs/localhost/* /opt/docs &&  git add ."

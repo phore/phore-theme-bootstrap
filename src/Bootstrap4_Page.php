@@ -48,18 +48,18 @@ class Bootstrap4_Page
         $this->config = $config;
         $this->document = $doc = fhtml("html");
 
-        $this->head = $head = $doc->elem("head");
-        $this->body = $body = $doc->elem("body");
+        $doc[] = $this->head = fhtml("head");
+        $doc[] = $this->body = fhtml("body");
 
         if ($config->content !== null) {
-            $body->tpl($config->content);
+            $body[] = $config->content;
         }
     }
 
 
     public function addContent($data = null) : FHtml
     {
-        $this->body->tpl($data);
+        $this->body[] =$data;
         return $this->body;
     }
 
@@ -69,10 +69,10 @@ class Bootstrap4_Page
         $config = $this->config;
 
         $head = $this->head;
-        $head->elem("meta @charset=?", [$config->charset]);
-        $this->title = $head->elem("title");
-        $this->title->content($config->title);
-        $head->elem("meta @name=viewport @content=width=device-width, initial-scale=1, shrink-to-fit=no");
+        $head[] = fhtml("meta @charset=?", [$config->charset]);
+        $this->title = $head["title"];
+        $this->title[] = $config->title;
+        $head[] = fhtml("meta @name=viewport @content=width=device-width, initial-scale=1, shrink-to-fit=no");
 
         foreach ($config->frameworks as $framework => $enabled) {
             if ( ! $enabled)
@@ -80,13 +80,13 @@ class Bootstrap4_Page
             if ( ! isset($config::FRAMEWORK_CSS[$framework]))
                 continue;
             foreach ($config::FRAMEWORK_CSS[$framework] as $cssHref)
-                $head->elem("link @rel=stylesheet @crossorigin=anonymous @href=?", [str_replace("%assetPath%", $config->assetPath, $cssHref)]);
+                $head[] = fhtml("link @rel=stylesheet @crossorigin=anonymous @href=?", [str_replace("%assetPath%", $config->assetPath, $cssHref)]);
         }
 
         foreach ($config->cssUrls as $cur)
-            $head->elem("link @rel=stylesheet @crossorigin=anonymous @href=?", [str_replace("%assetPath%", $config->assetPath, $cur)]);
+            $head[] = fhtml("link @rel=stylesheet @crossorigin=anonymous @href=?", [str_replace("%assetPath%", $config->assetPath, $cur)]);
         foreach ($config->cssCode as $cur)
-            $head->elem("style")->content(new RawHtmlNode($cur));
+            $head["style"] = new RawHtmlNode($cur);
 
 
         foreach ($config->frameworks as $framework => $enabled) {
@@ -95,12 +95,12 @@ class Bootstrap4_Page
             if ( ! isset($config::FRAMEWORK_JS[$framework]))
                 continue;
             foreach ($config::FRAMEWORK_JS[$framework] as $jsHref)
-                $this->body->elem("script @language=javascript @crossorigin=anonymous @src=?", [str_replace("%assetPath%", $config->assetPath, $jsHref)]);
+                $this->body[] = fhtml("script @language=javascript @crossorigin=anonymous @src=?", [str_replace("%assetPath%", $config->assetPath, $jsHref)]);
         }
         foreach ($config->jsUrls as $cur)
-            $this->body->elem("script @language=javascript @crossorigin=anonymous @src=?", [str_replace("%assetPath%", $config->assetPath, $cur)]);
+            $this->body[] = fhtml("script @language=javascript @crossorigin=anonymous @src=?", [str_replace("%assetPath%", $config->assetPath, $cur)]);
         foreach ($config->jsCode as $cur)
-            $this->body->elem("script @language=javascript ")->content(new RawHtmlNode($cur));
+            $this->body["script @language=javascript"][] = new RawHtmlNode($cur);
         return $this->document->renderPage();
     }
 
