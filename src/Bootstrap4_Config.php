@@ -42,7 +42,8 @@ class Bootstrap4_Config
             "%assetPath%/vue-2.5.17.js"
         ],
         "highlightjs" => [
-            "%assetPath%/highlightjs/highlight.pack.js"
+            "%assetPath%/highlightjs/highlight.pack.js",
+            "%assetPath%/highlightjs/run_highlight.js"
         ]
 
     ];
