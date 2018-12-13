@@ -22,6 +22,9 @@ class Bootstrap4_Config
         ],
         "fontawesome" => [
             "%assetPath%/fontawesome/css/all.css"
+        ],
+         "highlightjs" => [
+            "%assetPath%/highlightjs/styles/github.css"
         ]
     ];
 
@@ -37,6 +40,9 @@ class Bootstrap4_Config
         ],
         "vue" => [
             "%assetPath%/vue-2.5.17.js"
+        ],
+        "highlightjs" => [
+            "%assetPath%/highlightjs/highlight.pack.js"
         ]
 
     ];
@@ -50,7 +56,8 @@ class Bootstrap4_Config
         "bootstrap" => true,
         "fontawesome" => true,
         "popper" => false,
-        "vue" => false
+        "vue" => false,
+        "highlightjs" => false
     ];
 
 
