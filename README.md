@@ -6,6 +6,7 @@
     - [Bootstrap 4.1]()
     - [Popper]()
     - [VueJS2]()
+    - [HightlightJS]()
     
 Libraries are included as assets
 
