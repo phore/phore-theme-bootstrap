@@ -1,6 +1,10 @@
 
-document.addEventListener('load', (event) => {console.log("highlighter ready");
+document.addEventListener('load', (event) => {
     document.querySelectorAll('pre code').forEach((block) => {
         hljs.highlightBlock(block);
     });
+});
+
+document.querySelectorAll('pre code').forEach((block) => {
+    hljs.highlightBlock(block);
 });
