@@ -43,6 +43,9 @@ class Bootstrap4_Config
         ],
         "highlightjs" => [
             "%assetPath%/highlightjs/highlight.pack.js"
+        ],
+        "bs_autoformat" => [
+            "%assetPath%/bs_autoformat.js"
         ]
 
     ];
@@ -57,7 +60,8 @@ class Bootstrap4_Config
         "fontawesome" => true,
         "popper" => false,
         "vue" => false,
-        "highlightjs" => false
+        "highlightjs" => false,
+        "bs_autoformat" => true
     ];
 
 

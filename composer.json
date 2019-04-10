@@ -21,7 +21,8 @@
     "phore/html": ">=0.2"
   },
   "require-dev": {
-    "phore/micro-app": "*"
+    "phore/micro-app": "*",
+    "erusev/parsedown-extra": "dev-master"
   },
   "suggest": {
   },

@@ -2,6 +2,7 @@
 
 namespace Demo;
 
+use Phore\Html\Fhtml\FHtml;
 use Phore\Html\Helper\Highlighter;
 use Phore\MicroApp\App;
 use Phore\MicroApp\Handler\JsonExceptionHandler;
@@ -55,7 +56,8 @@ $app->router->get("/", function () use ($startCode, $app) {
             "h2" => "Basic setup",
             "pre" => [
                 "code @highlighter-rouge" => $hl->getCode()
-            ]
+            ],
+            "div @bs_autoformat" => FHtml::MarkdownFile(__DIR__ . "/markdown.inc.md")
         ]
     ]);
 
