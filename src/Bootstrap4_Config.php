@@ -58,7 +58,8 @@ class Bootstrap4_Config
             "%assetPath%/select2/select2.full.min.js"
         ],
         "daterangepicker" => [
-            "%assetPath%/daterangepicker/daterangepicker.js"
+            "%assetPath%/daterangepicker/daterangepicker.js",
+            "%assetPath%/moment.js" # Version requires momentjs
         ]
     ];
 

@@ -52,3 +52,8 @@ $('#demo').daterangepicker({
 ```php
 $themeConfig->frameworkds["select2"] = true;
 ```
+
+
+### MomentJS
+
+[Homepage](https://momentjs.com/)

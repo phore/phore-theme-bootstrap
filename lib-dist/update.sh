@@ -11,3 +11,4 @@ curl "https://raw.githubusercontent.com/dangrossman/daterangepicker/v3.1/dateran
 curl "https://raw.githubusercontent.com/select2/select2/4.0.13/dist/css/select2.min.css" --output select2/select2.min.css
 curl "https://raw.githubusercontent.com/select2/select2/develop/dist/js/select2.full.min.js" --output select2/select2.full.min.js
 
+curl "https://raw.githubusercontent.com/select2/select2/develop/dist/js/select2.full.min.js" --output select2/select2.full.min.js
