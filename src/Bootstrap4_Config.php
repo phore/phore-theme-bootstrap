@@ -25,6 +25,12 @@ class Bootstrap4_Config
         ],
          "highlightjs" => [
             "%assetPath%/highlightjs/styles/github.css"
+        ],
+        "select2" => [
+            "%assetPath%/select2/select2.min.css"
+        ],
+        "daterangepicker" => [
+            "%assetPath%/daterangepicker/daterangepicker.css"
         ]
     ];
 
@@ -47,6 +53,12 @@ class Bootstrap4_Config
         ],
         "bs_autoformat" => [
             "%assetPath%/bs_autoformat.js"
+        ],
+        "select2" => [
+            "%assetPath%/select2/select2.full.min.js"
+        ],
+        "daterangepicker" => [
+            "%assetPath%/daterangepicker/daterangepicker.js"
         ]
     ];
 
@@ -59,7 +71,9 @@ class Bootstrap4_Config
         "popper" => false,
         "vue" => false,
         "highlightjs" => false,
-        "bs_autoformat" => true
+        "bs_autoformat" => true,
+        "daterangepicker" => false,
+        "select2" => false
     ];
 
 
